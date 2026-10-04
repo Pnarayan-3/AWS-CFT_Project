@@ -315,9 +315,9 @@ aws cloudfront create-invalidation \
 ## 📖 Additional Resources
 
 - **AWS CloudFormation Docs**: https://docs.aws.amazon.com/cloudformation/
-- **S3 Best Practices**: https://docs.aws.amazon.com/s3/latest/userguide/
-- **CloudFront Caching**: https://docs.aws.amazon.com/cloudfront/latest/developerguide/
-- **IAM Policies**: https://docs.aws.amazon.com/iam/latest/userguide/
+- **S3 Best Practices**: https://docs.aws.amazon.com/s3
+- **CloudFront Caching**: https://docs.aws.amazon.com/cloudfront
+- **IAM Policies**: https://docs.aws.amazon.com/iam
 
 ---
 
