@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Static Website - CloudFormation Hosted</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        
+        .tech-stack {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .tech-stack h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .tech-stack ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .tech-stack li {
+            color: #666;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tech-stack li:last-child {
+            border-bottom: none;
+        }
+        
+        .tech-stack li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature-box h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .feature-box p {
+            color: #666;
+            font-size: 0.95em;
+            margin: 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .footer {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 My Static Website</h1>
+        <p class="subtitle">Hosted with AWS CloudFormation</p>
+        
+        <p>Welcome! This website is hosted using AWS infrastructure as code, combining the power of S3 for storage and CloudFront for global content delivery.</p>
+        
+        <div class="features">
+            <div class="feature-box">
+                <h4>⚡ Fast</h4>
+                <p>CloudFront CDN delivers content from edge locations worldwide</p>
+            </div>
+            <div class="feature-box">
+                <h4>🔒 Secure</h4>
+                <p>HTTPS enforced with automatic HTTP redirects</p>
+            </div>
+            <div class="feature-box">
+                <h4>💰 Cost-Effective</h4>
+                <p>Pay only for what you use, no servers to manage</p>
+            </div>
+            <div class="feature-box">
+                <h4>📊 Scalable</h4>
+                <p>Handles traffic spikes without any configuration</p>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <ul>
+                <li>AWS S3 - Static file storage</li>
+                <li>AWS CloudFront - Content delivery network</li>
+                <li>AWS CloudFormation - Infrastructure as Code</li>
+                <li>HTTPS/TLS - Encryption in transit</li>
+            </ul>
+        </div>
+        
+        <p><strong>What You Learned:</strong></p>
+        <p>✓ Infrastructure as Code with CloudFormation<br>
+           ✓ S3 bucket configuration and security<br>
+           ✓ CloudFront distribution setup<br>
+           ✓ IAM policies and least-privilege access<br>
+           ✓ Caching strategies and CDN optimization</p>
+        
+        <a href="https://aws.amazon.com/cloudformation/" class="cta-button">Learn More About CloudFormation</a>
+        
+        <div class="footer">
+            <p>Built with ❤️ using AWS CloudFormation | Last updated: 2026</p>
+        </div>
+    </div>
+</body>
+</html>
