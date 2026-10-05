@@ -1,0 +1,50 @@
+---
+name: Static Website CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Validate Repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Lint YAML
+        run: yamllint static_website_stack.yml
+
+      - name: Install HTMLHint
+        run: npm install -g htmlhint
+
+      - name: Lint HTML
+        run: |
+          htmlhint index.html
+          htmlhint 404.html
+
+      - name: Validate CloudFormation template
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
+
+      - name: Validate CloudFormation
+        run: |
+          aws cloudformation validate-template \
+            --template-body file://static_website_stack.yml
