@@ -1,3 +1,4 @@
+---
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'CloudFormation Template for Static Website Hosting with S3 and CloudFront'
 
@@ -6,7 +7,7 @@ Parameters:
     Type: String
     Description: 'Domain name for your website (e.g., example.com)'
     Default: 'my-static-website'
-  
+
   Environment:
     Type: String
     Description: 'Environment name'
@@ -73,13 +74,13 @@ Resources:
         Enabled: true
         HttpVersion: http2and3
         Comment: !Sub 'CloudFront Distribution for ${SiteDomain}'
-        
+
         Origins:
           - Id: S3Origin
             DomainName: !GetAtt StaticWebsiteBucket.RegionalDomainName
             S3OriginConfig:
               OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${CloudFrontOAI}'
-        
+
         DefaultCacheBehavior:
           AllowedMethods:
             - GET
@@ -97,7 +98,7 @@ Resources:
           ViewerProtocolPolicy: redirect-to-https
           DefaultTTL: 300
           MaxTTL: 1200
-        
+
         CacheBehaviors:
           # Cache HTML files for shorter duration
           - PathPattern: '*.html'
@@ -116,7 +117,7 @@ Resources:
             ViewerProtocolPolicy: redirect-to-https
             DefaultTTL: 60
             MaxTTL: 300
-          
+
           # Cache assets longer
           - PathPattern: '*.{css,js,woff,woff2,ttf,eot,svg}'
             AllowedMethods:
@@ -134,7 +135,7 @@ Resources:
             ViewerProtocolPolicy: redirect-to-https
             DefaultTTL: 31536000  # 1 year for assets
             MaxTTL: 31536000
-        
+
         # Error handling
         CustomErrorResponses:
           - ErrorCode: 403
@@ -145,7 +146,7 @@ Resources:
             ResponseCode: 404
             ResponsePagePath: /404.html
             ErrorCachingMinTTL: 60
-        
+
         Tags:
           - Key: Name
             Value: !Sub '${SiteDomain}-cloudfront'
